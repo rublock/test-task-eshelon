@@ -5,7 +5,6 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 
-# Добавляем путь к директории drivers/chrome в переменную окружения PATH
 os.environ["PATH"] += os.pathsep + "drivers/chrome"
 
 chrome_options = Options()
@@ -17,11 +16,19 @@ driver = webdriver.Chrome(options=chrome_options)
 driver.get("https://0.0.0.0/")
 driver.implicitly_wait(10)
 
-my_element = driver.find_element(By.CLASS_NAME, "license-expires-button-cancel")
-my_element.click()
+driver.find_element(By.NAME, "Login").send_keys("admin")
+driver.find_element(By.NAME, "Password").send_keys("admin")
+driver.find_element(By.CLASS_NAME, "button-submit").click()
 
-my_element = driver.find_element(By.CLASS_NAME, "header-menu__item")
-my_element.click()
+driver.find_element(By.CLASS_NAME, "license-expires-button-cancel").click()
+driver.find_element(By.CLASS_NAME, "header-menu__item").click()
+driver.find_element(By.CLASS_NAME, "idbmXZ").click()
+
+address_type_input = driver.find_element(By.NAME, "AddressType")
+driver.execute_script("arguments[0].value = arguments[1];", address_type_input, "IPv4")
+
+importance_type_input = driver.find_element(By.NAME, "importanceType")
+driver.execute_script("arguments[0].value = arguments[1];", importance_type_input, "Высокий")
 
 time.sleep(20)
 driver.quit()
