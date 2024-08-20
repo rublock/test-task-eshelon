@@ -46,7 +46,7 @@ class TagManager:
         self.driver.find_element(By.XPATH, "//div[text()='Инструменты']").click()
         self.driver.find_element(By.XPATH, "//a[text()='Теги']").click()
 
-        if not self.is_tag_present(tag_name):  # Проверка наличия тэга
+        if not self.is_tag_present(tag_name):
             self.driver.find_element(By.XPATH, "//span[text()='Добавить тег']").click()
             self.driver.find_element(By.NAME, "Name").send_keys(tag_name)
             self.driver.find_element(By.NAME, "Description").send_keys(description)
@@ -82,7 +82,6 @@ class AssetManager:
         self.driver.find_element(By.CLASS_NAME, "select-tag-input__icon").click()
         self.driver.find_element(By.CLASS_NAME, "checkbox__icon").click()
         self.driver.find_element(By.XPATH, "//button[text()='Создать']").click()
-        # TODO зайти в последний созданный Актив
 
 
 class DeleteAssets:
