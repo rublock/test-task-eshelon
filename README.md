@@ -1,4 +1,4 @@
-скачайте демо версию продукта по ссылке и разверните локально docker-compose с ПО.
+скачайте демо версию продукта по ссылке и разверните локально docker-compose с ПО
 ```commandline
 https://scaner-vs.ru/download_demo_scvs6/
 ```
